@@ -1,0 +1,326 @@
+/*
+ * Piccolo CSS Framework v0.0.1a
+ * Piccolo is a minimal CSS framework (like we really need another though)
+ * https://github.com/AndrewVanAllen/
+ *
+ * This project is still in early development. There may be bugs.
+ * If you're entomophobic, proceed with caution.
+ * View 'TODO.txt' for a list of things that still need to be done.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+//* --------- */
+//* Variables */
+//* --------- */
+$fonts: "Quicksand", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif
+$transition: color 0.10s ease-in-out, background-color 0.10s ease-in-out, border-color 0.10s ease-in-out
+
+//Colors
+$text-color: #333
+$link-color: #1f80db
+$link-color-focus: #1fb5db
+$active-color: #222
+$active-color-fg: #fff
+$filled-color: #222
+$filled-color-fg: #fff
+$nav-color: #259d96
+$nav-color-fg: #fff
+// To be added
+//$highlight:
+
+/* ------------------- */
+/* Import default font */
+/* ------------------- */
+@import url('https://fonts.googleapis.com/css?family=Quicksand|Source+Code+Pro')
+
+/* ----------- */
+/* Base styles */
+/* ----------- */
+html
+  -ms-text-size-adjust: 100%
+  -webkit-text-size-adjust: 100%
+  font:
+    family: sans-serif
+    size: 62.5%
+body
+  margin: 0
+  color: $text-color
+  font:
+    size: 1.5rem
+    weight: 400
+    family: $fonts
+
+/* ------- */
+/* Headers */
+/* ------- */
+h1, h2, h3,
+h4, h5, h6
+  margin-top: 0
+  margin-bottom: 1.5rem
+  font-weight: 300
+h1
+  font-size: 4.2rem
+  letter-spacing: -0.1rem
+h2
+  font-size: 3.8rem
+  letter-spacing: -0.1rem
+h3
+  font-size: 3.2rem
+  letter-spacing: -0.1rem
+h4
+  font-size: 2.4rem
+  letter-spacing: -0.07rem
+h5
+  font-size: 2rem
+  letter-spacing: -0.05rem
+h6
+  font-size: 1.5rem
+.row
+  &.title
+    margin-bottom: 2.5rem
+
+/* ----- */
+/* Links */
+/* ----- */
+a
+  color: $link-color
+  -webkit-transition: color 0.08s
+  -moz-transition: color 0.08s
+  -o-transition: color 0.08s
+  transition: color 0.08s
+  &:hover, &:focus
+    color: $link-color-focus
+  &.no-underline
+    text-decoration: none
+
+/* ------- */
+/* Buttons */
+/* ------- */
+.button,
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"]
+  display: inline-block
+  height: 3.5rem
+  padding: 0 2rem
+  color: #222
+  border: 1px solid #555
+  border-radius: 2px
+  line-height: 3.5rem
+  letter-spacing: 0.15rem
+  font-size: 1.25rem
+  white-space: nowrap
+  -webkit-transition: $transition
+  -moz-transition: $transition
+  -o-transition: $transition
+  transition: $transition
+  text:
+    align: center
+    decoration: none
+    transform: uppercase
+  &:focus,
+  &:hover
+    color: $active-color-fg
+    background-color: $active-color
+    border-color: $active-color
+  &.filled
+    color: $filled-color-fg
+    background-color: $filled-color
+    border-color: $filled-color
+  &.disabled
+    pointer-events: none
+    color: #999
+    border-color: #aaa
+  &.filled.disabled
+    pointer-events: none
+    color: darken($filled-color-fg, 45%)
+    background-color: transparentize($active-color, 0.7)
+    border-color: transparentize($active-color, 1)
+
+/* ---------- */
+/* Containers */
+/* ---------- */
+.container
+  margin: 0 auto
+  padding: 6rem 0
+  width: 100%
+  position: relative
+  @media (max-width: 399px)
+    width: 90%
+  @media (min-width: 400px)
+    width: 85%
+  @media (min-width: 550px)
+    width: 80%
+
+/* ------- */
+/* Columns */
+/* ------- */
+
+/*
+ * There are multiple `.column` sub-classes. Each has a varied length
+ *
+ * .half                    - Half of the grid    (same size as .six)
+ * .full                    - Full grid           (same size as .twelve)
+ * .one-third, .two-thirds  - One/two thirds
+ * .one-fourth              - One fourth          (same size as .three)
+ * .one, .two, .three, etc  - Self explanatory
+ * .offset-*                - Offset the column by specified amount i.e,
+ *                            .offset-five will offset the column by five column
+ *                            spaces. Use in conjunction with the other sizes.
+ */
+
+.column,
+.columns
+  width: 100%
+  float: left
+  box-sizing: border-box
+  margin-bottom: 1.5rem
+  margin-left: 4%
+.column
+  @media (min-width: 550px)
+    &:first-child,
+    &s:first-child
+      margin-left: 0
+    &.half,
+    &.six
+      width: 48%
+    &.full,
+    &.twelve
+      width: 100%
+      margin-left: 0
+    &.one-third
+      width: 30.6666666667%
+    &.two-thirds
+      width: 65.3333333333%
+    &.one-fourth,
+    &.three
+      width: 22%
+    &.one
+      width: 4.66666666667%
+    &.two
+      width: 13.3333333333%
+    &.four
+      width: 30.6666666667%
+    &.five
+      width: 39.3333333333%
+    &.seven
+      width: 56.6666666667%
+    &.eight
+      width: 65.3333333333%
+    &.nine
+      width: 74.0%
+    &.ten
+      width: 82.6666666667%
+    &.eleven
+      width: 91.3333333333%
+    &.offset-half,
+    &.offset-six
+      margin-left: 52%
+    &.offset-one-third
+      margin-left: 34.6666666667%
+    &.offset-two-thirds
+      margin-left: 69.3333333333%
+    &.offset-one-fourth
+      margin-left: 26%
+    &.offset-one
+      margin-left: 8.66666666667%
+    &.offset-two
+      margin-left: 17.3333333333%
+    &.offset-three
+      margin-left: 26%
+    &.offset-four
+      margin-left: 34.6666666667%
+    &.offset-five
+      margin-left: 43.3333333333%
+    &.offset-seven
+      margin-left: 60.6666666667%
+    &.offset-eight
+      margin-left: 69.3333333333%
+    &.offset-nine
+      margin-left: 78.0%
+    &.offset-ten
+      margin-left: 86.6666666667%
+    &.offset-eleven
+      margin-left: 95.3333333333%
+  @media (max-width: 549px)
+    margin-bottom: 2.5rem
+
+/* ---- */
+/* Code */
+/* ---- */
+/* I recommend you use Prettify to help with this */
+pre
+  overflow: auto
+  &.code
+    border:
+      color: #ccc !important
+      radius: 2px
+code
+  font:
+    family: 'Source Code Pro', monospace
+span
+  &.code
+    background-color: #ccc
+    padding: 0.4rem
+    border-radius: 3px
+    font-family: 'Source Code Pro', monospace
+    font-size: 10pt
+    color: #444
+
+/* ------- */
+/* Nav bar */
+/* ------- */
+.nav
+  width: 100%
+  background-color: $nav-color
+  color: $nav-color-fg
+  text-align: left
+  .container
+    padding: 1rem 0
+    .title
+      font-size: 3.8rem
+      a
+        vertical-align: middle
+        text-decoration: none
+        color: $nav-color-fg
+  &.big
+    .container
+      padding: 4rem 0
+
+/* ------ */
+/* Tables */
+/* ------ */
+table
+  width: 100%
+  border: 1px dashed #ccc
+  border-collapse: collapse
+  border-radius: 3px
+  margin-bottom: 1.5rem
+  tr
+    th
+      border: 1px solid #ccc
+      border-radius: 2px
+    td
+      border: 1px dashed #ccc
+    td, th
+      padding: 1.5rem
+      font-size: 10pt
+      border-radius: 3px
+  &.striped
+    border: 1px solid #ccc
+    tr:nth-child(even)
+      background-color: #fafafa
+  @media (min-width: 600px)
+    width: 60%
+
+/* -------- */
+/* Clearing */
+/* -------- */
+.container:after,
+.row:after
+  content: ""
+  clear: both
+  display: table
