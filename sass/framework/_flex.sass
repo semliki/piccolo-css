@@ -1,0 +1,18 @@
+// Flex
+
+$align-vars: center flex-start flex-end baseline stretch
+$justify-vars: center flex-start flex-end space-between space-evenly
+$direction-vars: column row row-reverse column-reverse
+
+.flex
+  @include display-flex
+
+@each $var in $align-vars
+  .flex-align-#{$var}
+    @include flex-align-items($var)
+@each $var in $justify-vars
+  .flex-justify-#{$var}
+    @include flex-justify($var)
+@each $var in $direction-vars
+  .flex-direction-#{$var}
+    @include flex-direction($var)

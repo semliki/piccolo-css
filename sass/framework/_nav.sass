@@ -1,0 +1,52 @@
+// Heads
+//
+// Heads are intended for portions (or all) of the nav where 
+// there's only a site title/logo displayed
+//
+
+.head
+  width: 100%
+  background-color: $nav-color
+  color: $nav-color-fg
+  text-align: center
+  @include generate-head($size: small)
+  @include generate-head($size: medium)
+  @include generate-head($size: big)
+
+.nav
+  width: 100%
+  background-color: $nav-color
+  color: $nav-color-fg
+  @include generate-head(2.5rem, small)
+    .row
+      @include display-flex
+      width: 100%
+      &.nav-link-list
+        @include flex-justify(flex-end)
+  @include screen-size(small)
+    text-align: center
+    @include generate-head(2.5rem, small)
+      .row
+        @include flex-direction(column)
+        @include display-flex
+        width: 100%
+        &.nav-link-list
+          @include flex-justify(center)
+          @include flex-direction(row)
+  &.shadowed
+    @include material-shadow(1)
+
+.nav-link
+  color: $nav-color-fg
+  text:
+    align: center
+    decoration: none
+    transform: uppercase
+  height: 3.5rem
+  letter-spacing: 0.15rem
+  padding: 0 2rem
+  font-size: 1.25rem
+  line-height: 3.5rem
+  @include transition-ease(0.10s)
+  &:hover
+    color: darken($nav-color, 20%)

@@ -1,0 +1,105 @@
+// Screen Mixins (Breakpoints)
+//
+// ```@include screen-size(small)
+//      // sass here (preferred, but optional)
+
+@mixin screen-size($size)
+  @if $size == small
+    @media screen and (max-width: 399px)
+      @content
+  @if $size == medium
+    @media screen and (min-width: 400px)
+      @content
+  @if $size == large
+    @media screen and (min-width: 550px)
+      @content
+
+// Generate Head
+//
+// Generates a head based on the size. This allows you to choose one
+// or more styles for the head in 'framework/_nav.sass'
+// There are 3 sizes: small, medium, large
+// You can also define your own size, and title font size
+//
+// ```@include generate-head(small)
+//      // sass here (optional)
+//
+// ```@include generate-head(10rem)
+//      // sass here (optional)
+//
+// ```@include generate-head(10rem, 2.5rem)
+//      // sass here (optional)
+
+@mixin generate-head($title-size:false, $size)
+  &.#{$size}
+    .container
+      @if $size == small 
+        padding: 1.5rem 0
+      @if $size == medium
+        padding: 4rem 0
+      @if $size == large
+        padding: 10rem 0 0 0
+      .title
+        @if $title-size
+          font-size: $title-size
+        @else
+          font-size: 3.8rem
+        a
+          vertical-align: middle
+          text-decoration: none
+          color: $nav-color-fg
+      @content
+
+// Flex mixins
+//
+// ```@include flex-justify(center)
+// ```@include flex-align-items(center)
+@mixin display-flex
+  display: flex
+  display: -webkit-flex
+
+@mixin flex-justify($alignment)
+  justify-content: $alignment
+
+@mixin flex-align-items($alignment)
+  align-items: $alignment
+
+@mixin flex-direction($direction)
+  flex-direction: $direction
+
+// Transitions
+//
+// ```@include transition-ease(0.1s)
+
+@mixin transition-ease($time)
+  -webkit-transition: color $time ease-in-out, background-color $time ease-in-out, border-color $time ease-in-out
+  -moz-transition: color $time ease-in-out, background-color $time ease-in-out, border-color $time ease-in-out
+  -o-transition: color $time ease-in-out, background-color $time ease-in-out, border-color $time ease-in-out
+  transition: color $time ease-in-out, background-color $time ease-in-out, border-color $time ease-in-out
+
+// Truncate width
+//
+// ```@include truncate(15rem)
+
+@mixin truncate($width)
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+  width: $width
+
+// Shadows (Stolen from https://codepen.io/sdthornton/pen/wBZdXq)
+//
+// ```@include material-shadow($depth)
+
+@mixin material-shadow($depth)
+  @if $depth == 1 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+  @if $depth == 2
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+  @if $depth == 3
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+  @if $depth == 4
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+  @if $depth == 5
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)
+    

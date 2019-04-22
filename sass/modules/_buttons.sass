@@ -1,0 +1,46 @@
+// Buttons
+//
+// There are three types of buttons:
+//
+// .filled                    - Button with an opaque backround.
+//                              The background color can be styled with the `$filled-color`
+//                              option in 'base/variables.sass'
+// .disabled                  - Disabled, grayed-out, version of the main button style
+// .filled.disabled           - Disabled version of `.filled`
+//
+
+.button,
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"]
+  display: inline-block
+  height: 3.5rem
+  padding: 0 2rem
+  color: $text-color
+  cursor: pointer
+  font-size: 1.25rem
+  line-height: 3.5rem
+  white-space: nowrap
+  border-radius: 2px
+  letter-spacing: 0.15rem
+  @include transition-ease(0.10s)
+  text:
+    align: center
+    decoration: none
+    transform: uppercase
+  &:focus,
+  &:hover
+    color: $active-color-fg
+    background-color: lighten($bg-color, 10%)
+  &.filled
+    color: $filled-color-fg
+    background-color: $filled-color
+  &.disabled
+    pointer-events: none
+    color: darken($text-color, 10%)
+  &.filled.disabled
+    pointer-events: none
+    color: darken($filled-color-fg, 45%)
+    border-color: transparentize($active-color, 1)
+    background-color: transparentize($active-color, 0.7)

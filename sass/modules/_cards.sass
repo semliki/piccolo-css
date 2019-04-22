@@ -1,0 +1,32 @@
+// Cards
+//
+// Cards have 5 different depth options for their shadow,
+// increasing in height incrementally upwards
+//
+
+.card
+  @if lightness($bg-color) > 90
+    background-color: #fff
+  @else if lightness($bg-color) > 50
+    background-color: darken($bg-color, 5%)
+  @else
+    background-color: lighten($bg-color, 5%)
+  width: 50%
+  padding: 3rem
+  border-radius: 2px
+  margin-bottom: 2.5rem !important
+  margin: auto
+  &:first-child,
+  &s:first-child
+    margin-top: 5rem !important
+  @for $i from 1 through 5
+    &.depth-#{$i}
+      @include material-shadow($i)
+  @include screen-size(small)
+    text-align: center
+
+.card-title
+  color: $highlight-color
+  text-align: center
+  font-size: 2rem
+  margin-bottom: 2rem  

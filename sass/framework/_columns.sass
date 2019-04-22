@@ -1,0 +1,89 @@
+// Columns
+//
+// There are multiple `.column` sub-classes. Each has a varied length
+//
+// .half                    - Half of the grid    (same size as .six)
+// .full                    - Full grid           (same size as .twelve)
+// .one-third, .two-thirds  - One/two thirds
+// .one-fourth              - One fourth          (same size as .three)
+// .one, .two, .three, etc  - Self explanatory
+// .offset-*                - Offset the column by specified amount i.e,
+//                            '.offset-five' will offset the column by five column
+//                            spaces. Use in conjunction with the other sizes.
+//
+
+.column,
+.columns
+  width: 100%
+  float: left
+  box-sizing: border-box
+  margin-bottom: 1.5rem
+  margin-left: 4%
+.column
+  @include screen-size(large)
+    &:first-child,
+    &s:first-child
+      margin-left: 0
+    &.half,
+    &.six
+      width: 48%
+    &.full,
+    &.twelve
+      width: 100%
+      margin-left: 0
+    &.one-third
+      width: 30.6666666667%
+    &.two-thirds
+      width: 65.3333333333%
+    &.one-fourth,
+    &.three
+      width: 22%
+    &.one
+      width: 4.66666666667%
+    &.two
+      width: 13.3333333333%
+    &.four
+      width: 30.6666666667%
+    &.five
+      width: 39.3333333333%
+    &.seven
+      width: 56.6666666667%
+    &.eight
+      width: 65.3333333333%
+    &.nine
+      width: 74.0%
+    &.ten
+      width: 82.6666666667%
+    &.eleven
+      width: 91.3333333333%
+    &.offset-half,
+    &.offset-six
+      margin-left: 52%
+    &.offset-one-third
+      margin-left: 34.6666666667%
+    &.offset-two-thirds
+      margin-left: 69.3333333333%
+    &.offset-one-fourth
+      margin-left: 26%
+    &.offset-one
+      margin-left: 8.66666666667%
+    &.offset-two
+      margin-left: 17.3333333333%
+    &.offset-three
+      margin-left: 26%
+    &.offset-four
+      margin-left: 34.6666666667%
+    &.offset-five
+      margin-left: 43.3333333333%
+    &.offset-seven
+      margin-left: 60.6666666667%
+    &.offset-eight
+      margin-left: 69.3333333333%
+    &.offset-nine
+      margin-left: 78.0%
+    &.offset-ten
+      margin-left: 86.6666666667%
+    &.offset-eleven
+      margin-left: 95.3333333333%
+  @include screen-size(medium)
+    margin-bottom: 2.5rem

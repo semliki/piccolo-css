@@ -1,0 +1,23 @@
+// Tables
+table
+  width: 100%
+  border: 1px dashed lighten($text-color, 5%)
+  border-collapse: collapse
+  border-radius: 3px
+  margin-bottom: 1.5rem
+  tr
+    th
+      border: 1px solid lighten($text-color, 5%)
+      border-radius: 2px
+    td
+      border: 1px dashed lighten($text-color, 5%)
+    td, th
+      padding: 1.5rem
+      font-size: 10pt
+      border-radius: 3px
+  &.striped
+    border: 1px solid lighten($text-color, 5%)
+    tr:nth-child(even)
+      background-color: darken($bg-color, 2.5%)
+  @include screen-size(large)
+    width: 60%

@@ -1,0 +1,38 @@
+// Font import
+@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono|Assistant')
+// Base layout
+html, body
+  height: 100%
+html
+  -ms-text-size-adjust: 100%
+  -webkit-text-size-adjust: 100%
+  text-size-adjust: 100%
+  font:
+    family: sans-serif
+    size: 62.5%
+body
+  margin: 0
+  color: $text-color
+  background-color: $bg-color
+  font:
+    size: 1.5rem
+    weight: 400
+    family: $font-sans
+
+// Containers
+.container
+  margin: 0 auto
+  padding: 6rem 0
+  width: 100%
+  position: relative
+  @include screen-size(small)
+    width: 90%
+  @include screen-size(medium)
+    width: 85%
+  @include screen-size(large)
+    width: 80%
+.row
+  margin-bottom: 1.5rem
+  &:last-child
+    margin-bottom: 0
+
